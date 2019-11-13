@@ -1,3 +1,4 @@
+//Require NPM Packages
 const express = require('express');
 const app = express();
 const passport = require('passport');
@@ -5,6 +6,7 @@ const session = require('express-session');
 const db = require('./models');
 const routes = require('./routes');
 
+//This module creates a database table to save session data. 
 const MySQLStore = require('express-mysql-session')(session);
 
 let options = {};
@@ -15,6 +17,7 @@ require('./config/passport')(passport);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+//pass in an existing MySQL database connection or pool
 if (process.env.NODE_ENV === 'production') {
     options = {
         host: process.env.HOST,
@@ -29,10 +32,11 @@ if (process.env.NODE_ENV === 'production') {
         port: 3306,
         user: 'root',
         password: "Lost4815162342",
-        database: 'tracker'
+        database: 'tourdaze'
     }
 }
 
+//The session store will internally create a mysql connection pool which handles the reconnection to the database. 
 app.use(session({
     key: 'tourdaze',
     secret: 'tourdaze',

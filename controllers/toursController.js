@@ -14,7 +14,9 @@ module.exports = {
         TourCMS.searchTours({
             channelId: 3930,
             qs: {
+                //Keyword - matches against Tour name, Location, Short description, Summary, Tour code
                 k: 'rafting',
+                //TourCMS internally converts all prices to USD for ordering purposes
                 order: 'price_down'
             },
             callback: function(response){
