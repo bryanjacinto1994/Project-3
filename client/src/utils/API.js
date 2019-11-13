@@ -1,8 +1,22 @@
 const axios = require("axios");
 
 export default {
+
+
     getTours: function (city) {
         return axios.get("/api/tours/" + city)
+    },
+
+    getMyTours: function (id) {
+        return axios.get("/api/profile/" + id)
+    },
+
+    saveTour: function (data) {
+        return axios.post("/api/tours/", data)
+    },
+
+    deleteTour: function (id) {
+        return axios.delete('/api/profile/' + id)
     },
 
     // Auth Functinos
