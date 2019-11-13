@@ -1,25 +1,34 @@
-const db = require('../models');
+const db = require("../models");
+const axios = require("axios");
+const log = console.log
 
-const TourCMSApi = require('tourcms');
+modules.exports = {
+        getTours:(req , res) =>{
+            console.log('getting tours')
 
-module.exports = {
-    getTours: (req, res) => {
-        console.log("Getting the Tours")
-        let TourCMS = new TourCMSApi({
-            channelId : 0,
-            apiKey: '6a2e1a115e9f',
-            marketplaceId: 47494
-        });
+            let accountID = "7IEBG9VK";
+            let apiToken = 'tbl4ejykaan3v4o03cv1scgni1r96z9q';
 
-        TourCMS.searchTours({
-            channelId: 3930,
-            qs: {
-                k: 'rafting',
-                order: 'price_down'
-            },
-            callback: function(response){
-                console.log(response);
-            }
-        });
-    }
+            axios.get(`https://www.triposo.com/api/20190906/tour.json?location_ids=San_Francisco&account=${accountID}&token=${apiToken}`)
+                .then(response => {
+                    console.log(response.data)
+                    res.json(response.data)
+                })
+                // For city
+        // axios.get(`https://www.triposo.com/api/20190906/location.json?id=San_Francisco&account=${accountID}&token=${apiToken}`)
+        //     .then(response => {
+        //         log("\nResponse Data")
+        //         log(response.data)
+
+        //         log("\nResults")
+        //         log(response.data.results)
+
+        //         log("\nAttribution0")
+        //         log(response.data.results[0])
+
+        //         res.json(response.data.results)
+        //     })
+
+        // for tour
+        }
 }
