@@ -4,8 +4,8 @@ import API from '../../utils/API';
 
 function Navbar(props) {
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <a className="navbar-brand" href="/">TripDaze</a>
+        <nav className="navbar navbar-expand-lg">
+            <a className="navbar-brand cool-link" href="/">TripDaze</a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
@@ -17,8 +17,8 @@ function Navbar(props) {
                     </li> */}
 
                     {/* This should only show up if the user is logged in! */}
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">Join Group</a>
+                    <li className="nav-item ">
+                        <a className="nav-link cool-link" href="#">Join Group</a>
                     </li>
                     {/* <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -39,15 +39,9 @@ function Navbar(props) {
                     <a className="nav-link" href="#">Login</a>
                 </li> */}
 
-                {props.login ?
                     <div className='nav-item'>
-                        <a className='nav-link' href='#' onClick={API.logout}>Logout</a>
+                        <a className='nav-link cool-link' href='/' onClick={API.logout}>Logout</a>
                     </div>
-                    :
-                    <div className='nav-item'>
-                        <Link className='nav-link' to='/login'>Login</Link>
-                    </div>}
-
 
                 <form className="form-inline my-2 my-lg-0">
                     <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
