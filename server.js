@@ -5,3 +5,8 @@ const session = require('express-session');
 const db = require('./models');
 const routes = require('./routes');
 
+const MySQLStore = require('express-mysql-session')(session);
+
+let options = {};
+let sessionStore = new MySQLStore(options);
+
