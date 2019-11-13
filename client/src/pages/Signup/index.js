@@ -1,9 +1,14 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
+import './style.css'
+import API from '../../utils/API';
 
 class Signup extends React.Component {
     state = {
         email: '',
+        firstName: '',
+        lastName: '',
         password: '',
         passwordConfirm: ''
     }
@@ -15,14 +20,34 @@ class Signup extends React.Component {
         })
     }
 
-    handleSignup = () => {
+    handleSignup = (event) => {
+        event.preventDefault();
 
+        let { email, firstName, lastName, password, passwordConfirm } = this.state
+        if (email && password === passwordConfirm) {
+            let creds = {
+                email,
+                firstName,
+                lastName,
+                password
+            }
+            API.signup(creds)
+                .then(res => {
+                    this.setState({
+                        email: '',
+                        password: '',
+                        passwordConfirm: ''
+                    })
+                    window.location.href = '/login'
+                })
+                .catch(err => console.log(err))
+        }
     }
 
     render() {
         return (
             <div className='container mt-4 mb-5'>
-                <h1 className='center'>GitTrack</h1>
+                <h1 className='center'>Trip Daze</h1>
                 <div className='container col-6 mx-auto'>
                     <h2 className='col-6'>Sign Up</h2>
                     <form>
@@ -55,27 +80,12 @@ class Signup extends React.Component {
                                 <input value={this.state.passwordConfirm} name='passwordConfirm' onChange={this.handleInputChange} type="password" className="form-control" id="passwordConfirm" placeholder="Password" autoComplete="true" />
                             </div>
                         </div>
-                        <div className="row">
-                            <fieldset className="form-group types col-6">
-                                <legend className="col-form-label pt-0">Account Type</legend>
-                                <span>
-                                    <div className="form-check form-check-inline">
-                                        <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="instructor" />
-                                        <label className="form-check-label" htmlFor="gridRadios2">Instructor</label>
-                                    </div>
-                                    <div className="form-check form-check-inline">
-                                        <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="student" />
-                                        <label className="form-check-label" htmlFor="gridRadios3">Student</label>
-                                    </div>
-                                </span>
-                            </fieldset>
-                        </div>
 
                         <div className='row col-6'>
                             <button onClick={this.handleSignup} type="submit" className="btn col-6">Submit</button>
                         </div>
                     </form>
-                    {/* <Link className='col-6' to='/login'>Have an account? Login here</Link> */}
+                    <Link className='col-6' to='/login'>Have an account? Login here</Link>
 
                 </div>
 
