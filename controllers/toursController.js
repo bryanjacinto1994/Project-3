@@ -47,5 +47,35 @@ module.exports = {
 
         // for tour
 
+    },
+    saveTour: (req, res) => {
+        console.log("\nSave Tour")
+        let { id, name, price, currency, url, img } = req.body
+        db.Tour.create({
+            name,
+            price,
+            currency,
+            url,
+            img
+        })
+            .then(dbTour => {
+                console.log(dbTour)
+                let tourID = parseInt(dbTour.dataValues.id)
+
+                console.log("\nTour")
+                console.log(tourID)
+
+                let userID = parseInt(id)
+                console.log("\nUSER ID")
+                console.log(userID)
+                db.userTour.create({
+                    userID,
+                    tourID
+                }).then(dbUserTour => {
+                    console.log("Association established")
+                    console.log(dbUserTour)
+                    res.json(dbTour)
+                })
+            })
     }
 }
