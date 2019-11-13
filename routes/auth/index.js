@@ -1,11 +1,11 @@
-const router =require('express');
+const router = require("express").Router();
 const passport = require("passport");
 const db = require("../../models");
 
 let returnData = {};
 
 router.get('/user', (req, res) => {
-    // Req has a method that checks for authentication
+    
     console.log("\nRequest Session")
     console.log(req.session)
     if (req.isAuthenticated()) {
@@ -90,7 +90,6 @@ router.post("/signup", (req, res, next) => {
 
 router.get("/logout", (req, res) => {
 
-    // Based on that request, we know that the authenticated user is no longer authenticated and is now logged out
     req.logout()
     if (!req.user) {
         res.redirect("/")
