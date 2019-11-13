@@ -9,13 +9,12 @@ class SplashPage extends React.Component {
 
     render() {
 
-
         return (
             <div>
                 <section className='main-title'>
                     <h1 className='title'>Trip Daze</h1>
                     <h3>Take a tour, today!</h3>
-                    <Link to='/signup' className='my-btn'>Signup</Link> <Link to='/docs' className='my-btn'>About Us</Link>
+                    <Link to='/signup' className='btn'>Signup</Link> <Link to='/docs' className='btn'>About Us</Link>
                 </section>
                 <section className='details'>
                     <div className='container'>

@@ -39,9 +39,13 @@ function Navbar(props) {
                     <a className="nav-link" href="#">Login</a>
                 </li> */}
 
-                    <div className='nav-item'>
-                        <a className='nav-link cool-link' href='/' onClick={API.logout}>Logout</a>
-                    </div>
+
+                <div className='nav-item'>
+                    <Link className='cool-link nav-link' to='/profile'>Profile</Link>
+                </div>
+                <div className='nav-item'>
+                    <a className='nav-link cool-link' href='/' onClick={API.logout}>Logout</a>
+                </div>
 
             </div>
         </nav>

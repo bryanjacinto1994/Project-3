@@ -5,7 +5,7 @@ import './style.css';
 function SplashNav(props) {
     return (
         <nav className="navbar navbar-expand-lg">
-            <a className="navbar-brand" href="/">TripDaze</a>
+            <a className="navbar-brand cool-link" href="/">TripDaze</a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
@@ -15,7 +15,7 @@ function SplashNav(props) {
 
                 </ul>
                 <div className='nav-item'>
-                    <Link className='nav-link' to='/login'>Login</Link>
+                    <Link className='nav-link cool-link' to='/login'>Login</Link>
                 </div>
             </div>
         </nav>
