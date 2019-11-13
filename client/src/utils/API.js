@@ -1,8 +1,8 @@
 const axios = require("axios");
 
 export default {
-    getTours: function () {
-        return axios.get("/api/tours")
+    getTours: function (city) {
+        return axios.get("/api/tours/" + city)
     },
 
     // Auth Functinos
@@ -18,7 +18,7 @@ export default {
         return axios.get("/auth/logout")
     },
 
-    getUser: function() {
+    getUser: function () {
         return axios.get("/auth/user")
     }
 }

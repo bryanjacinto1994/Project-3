@@ -1,16 +1,21 @@
-const passport = require('passport');
+// Passport Authentication. Need to use its methods
+const passport = require("passport");
 
-const LocalStrategy = require('passport-local');
+// Using Passport Local Strategy. Has methods specific to local login
+const LocalStrategy = require("passport-local");
 
-const db = require('../models');
+// Bring in models
+const db = require("../models");
 
-const bcrypt = require('bcryptjs');
+// Used to Hash password
+const bcrypt = require("bcryptjs");
+
 
 module.exports = () => {
 
     // Signup
     passport.use('local-signup', new LocalStrategy({
-        
+        // => What do these do?
         usernameField: 'email',
         passwordField: 'password',
         passReqToCallback: true
@@ -37,7 +42,6 @@ module.exports = () => {
                         lastName: req.body.lastName,
                         email: req.body.email,
                         password: passwordHash,
-                        image: req.body.image
                     }
 
                     console.log(`User data:`, data)
@@ -91,7 +95,7 @@ module.exports = () => {
                         return done(null, false)
                     }
 
-                     //this logs in the user
+                    // => What does this do? We know it logs in the user but how
                     var userInfo = user.get();
                     console.log("UserInfo")
                     console.log(userInfo)

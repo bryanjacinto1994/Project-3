@@ -1,20 +1,36 @@
 const db = require("../models");
 const axios = require("axios");
+// const TourCMSApi = require("tourcms");
+
 const log = console.log
 
-modules.exports = {
-        getTours:(req , res) =>{
-            console.log('getting tours')
+module.exports = {
+    getTours: (req, res) => {
+        console.log("Getting tours")
 
-            let accountID = "7IEBG9VK";
-            let apiToken = 'tbl4ejykaan3v4o03cv1scgni1r96z9q';
+        let preCity = req.params.city
+        let newStr = ''
+        for (let i = 0; i < preCity.length; i++) {
+            if (preCity[i] === ' ') {
+                newStr += '_'
+            } else {
+                newStr += preCity[i]
+            }
+        }
+        let accountID = '7IEBG9VK';
+        let apiToken = 'tbl4ejykaan3v4o03cv1scgni1r96z9q';
+        let city = newStr;
+        console.log("\nCity")
+        console.log(city)
 
-            axios.get(`https://www.triposo.com/api/20190906/tour.json?location_ids=San_Francisco&account=${accountID}&token=${apiToken}`)
-                .then(response => {
-                    console.log(response.data)
-                    res.json(response.data)
-                })
-                // For city
+        axios.get(`https://www.triposo.com/api/20190906/tour.json?location_ids=${city}&account=${accountID}&token=${apiToken}`)
+            .then(response => {
+                console.log(response.data)
+                res.json(response.data)
+            })
+
+
+        // For city
         // axios.get(`https://www.triposo.com/api/20190906/location.json?id=San_Francisco&account=${accountID}&token=${apiToken}`)
         //     .then(response => {
         //         log("\nResponse Data")
@@ -30,5 +46,6 @@ modules.exports = {
         //     })
 
         // for tour
-        }
+
+    }
 }
