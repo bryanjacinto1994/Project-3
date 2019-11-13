@@ -11,3 +11,7 @@ let options = {};
 let sessionStore = new MySQLStore(options);
 
 require('./config/passport')(passport);
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
