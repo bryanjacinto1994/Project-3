@@ -59,8 +59,8 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 db.sequelize.sync({ force: false }).then(() => {
-    let server = app.listen(process.env.PORT || 3000, function() {
+    let server = app.listen(process.env.PORT || 5000, function() {
             let port = server.address().port;
-            console.log('App listening on PORT' + PORT)
+            console.log('App listening on PORT ' + port)
     })
 })
