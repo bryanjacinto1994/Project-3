@@ -15,7 +15,6 @@ require("./config/passport")(passport)
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-//pass in an existing MySQL database connection or pool
 if (process.env.NODE_ENV === 'production') {
     options = {
         host: process.env.HOST,

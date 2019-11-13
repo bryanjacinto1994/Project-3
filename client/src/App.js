@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import SplashPage from './pages/SplashPage';
 import Docs from './pages/Docs';
+import Profile from './pages/Profile'
 
 // Components
 import Navbar from './components/Navbar';
@@ -18,6 +19,7 @@ import API from './utils/API';
 class App extends React.Component {
   state = {
 
+    user: '',
     loggedIn: false,
 
   }
@@ -30,7 +32,6 @@ class App extends React.Component {
           this.setState({
             user: res.data.user,
             loggedIn: res.data.loggedIn,
-            // userType: res.data.user.userType
           })
         } else {
           this.setState({
@@ -77,7 +78,9 @@ class App extends React.Component {
               logout={this.logout}
             />
             <Switch>
-              <Route path='/' exact component={Main} />
+              <Route path='/' exact component={() => <Main user={this.state.user} />} />
+              <Route path='/profile' exact component={() => <Profile user={this.state.user} />} />
+
             </Switch>
           </Router>
         </div>
