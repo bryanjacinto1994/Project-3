@@ -3,5 +3,6 @@ const apiRoutes = require('./api');
 const authRoutes = require('./authentication');
 
 router.use('/api', apiRoutes);
+router.use("/auth", authRoutes);
 
 module.exports = router;
