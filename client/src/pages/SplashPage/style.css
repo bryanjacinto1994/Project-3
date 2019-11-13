@@ -1,0 +1,33 @@
+.main-title {
+    margin: 5% auto 0;
+    text-align: center;
+    height: 20rem;
+}
+
+.title {
+    font-size: 5rem;
+    color: darkgreen;
+    margin-bottom: 1.2rem;
+}
+
+h3 {
+    margin-bottom: 1.5rem;
+}
+
+.my-btn {
+    margin-top: 3rem;
+    background: rgb(1, 66, 1);
+    color: white !important;
+    padding: 0.5rem;
+    border-radius: 15%;
+    
+}
+
+.details {
+    background: rgb(1, 66, 1);
+    color: white !important;
+    margin-top: 3rem;
+    text-align: center;
+    height: 10rem;
+}
+

@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import API from '../../utils/API';
 
 function Navbar(props) {
     return (
@@ -37,10 +39,16 @@ function Navbar(props) {
                     <a className="nav-link" href="#">Login</a>
                 </li> */}
 
-                <div className='nav-item'>
-                    <a className='nav-link' href='#'>Login</a>
-                </div>
-                
+                {props.login ?
+                    <div className='nav-item'>
+                        <a className='nav-link' href='#' onClick={API.logout}>Logout</a>
+                    </div>
+                    :
+                    <div className='nav-item'>
+                        <Link className='nav-link' to='/login'>Login</Link>
+                    </div>}
+
+
                 <form className="form-inline my-2 my-lg-0">
                     <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
                     <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
