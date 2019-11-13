@@ -16,6 +16,8 @@ import SplashNav from './components/SplashNav';
 // Utils
 import API from './utils/API';
 
+import './App.css';
+
 class App extends React.Component {
   state = {
 

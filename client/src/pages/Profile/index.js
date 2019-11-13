@@ -1,10 +1,7 @@
 import React from 'react';
-
-// Components
 import Card from '../../components/Card';
-
-// Utils
 import API from '../../utils/API';
+import './style.css';
 
 class Profile extends React.Component {
     state = {

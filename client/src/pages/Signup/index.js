@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-import './style.css'
 import API from '../../utils/API';
+import './style.css';
 
 class Signup extends React.Component {
     state = {

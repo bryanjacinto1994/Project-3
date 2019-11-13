@@ -1,8 +1,7 @@
 import React from 'react';
 import API from '../../utils/API';
-import Card from '../../components/Card'
-
-import './style.css'
+import Card from '../../components/Card';
+import './style.css';
 
 class Main extends React.Component {
     state = {
