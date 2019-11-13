@@ -33,3 +33,10 @@ if (process.env.NODE_ENV === 'production') {
     }
 }
 
+app.use(session({
+    key: 'tourdaze',
+    secret: 'tourdaze',
+    store: sessionStore,
+    resave: false,
+    saveUninitialized: false
+}))
