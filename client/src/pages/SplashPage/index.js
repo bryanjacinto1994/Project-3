@@ -20,13 +20,13 @@ class SplashPage extends React.Component {
                     <div className='container'>
                         <div className='row'>
                             <div className='col-4'>
-                                What is the issue
+                                {/* What is the issue */}
                         </div>
                             <div className='col-4'>
-                                What we can do to solve it
+                                Join Today!
                         </div>
                             <div className='col-4'>
-                                Join today!
+                                {/* Join today! */}
                         </div>
 
                         </div>
